@@ -55,7 +55,7 @@ function generatePassword(){
     var useNumber = confirm("Do you want numbers?")
     var useSpecial = confirm("Do you want special charecters")
     }
-    while((!useLower && !useUpper && !useNumber && !useSpecial))
+    while(!(useLower && useUpper && useNumber && useSpecial))
   
   var fixLength = maxLength - minLength + 1;
 
