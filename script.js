@@ -1,4 +1,4 @@
-// Assignment Code
+// variable decleration
 var generateBtn = document.querySelector("#generate");
 
 var lowerChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -19,7 +19,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+// This function generates a password to the lastPass variable 
 function generatePassword(){
   
   var passChar = []; 
@@ -30,7 +30,7 @@ function generatePassword(){
   var y;
   var z;
 
-
+// Asks user for minimum password length 
   minLength = parseInt(prompt("Please enter a minimum password length."));
     
    while ((!(minLength>=8)) || (!(minLength <=128))) {
@@ -39,17 +39,17 @@ function generatePassword(){
    
   }
   
-
-  maxLength = parseInt(prompt( "Please enter a maximum password length."));
+// Asks user for maximum password length 
+  // maxLength = parseInt(prompt( "Please enter a maximum password length."));
     
-  while ((!(maxLength<=128)) || (!(maxLength >= minLength))){
+  // while ((!(maxLength<=128)) || (!(maxLength >= minLength))){
     
-    maxLength = parseInt(prompt("Invalid input. Please enter a length between " + minLength + " and 128."));
+  //   maxLength = parseInt(prompt("Invalid input. Please enter a length between " + minLength + " and 128."));
    
-  }
+  // }
  
     do{
-
+// prompts user for charecter sets
     var useLower = confirm("Do you want lower case?")
     var useUpper = confirm("Do you want upper case?")
     var useNumber = confirm("Do you want numbers?")
@@ -57,12 +57,13 @@ function generatePassword(){
     }
     while((!useLower && !useUpper && !useNumber && !useSpecial))
   
-  var fixLength = maxLength - minLength + 1;
+  // This is from an early version and it chosses a random length between the min and max length
+  // var fixLength = maxLength - minLength + 1;
 
-  var passLength = Math.floor((Math.random()*fixLength)+minLength);
+  // var passLength = Math.floor((Math.random()*fixLength)+minLength);
 
 
-  
+  // Adds individual charecter sets to the password charecter sets
   if (useLower){
     tempPass.push(lowerChar[Math.floor(Math.random()*lowerChar.length)]);
     for (var i=0; i<lowerChar.length; i++){
@@ -93,13 +94,13 @@ if (useSpecial){
 }
 
 
-
+// Fills tempPass with random charecters
   for(var m=tempPass.length; m<passLength; m++){
   tempPass.push(passChar[Math.floor(Math.random()*passChar.length)]);
   }
 
   
-// fisher yates model // 
+// fisher yates model that does a random sort on tempPass
 
 for (x = tempPass.length -1; x > 0; x--) {
   y = Math.floor(Math.random() * x)
@@ -107,7 +108,7 @@ for (x = tempPass.length -1; x > 0; x--) {
   tempPass[x] = tempPass[y]
   tempPass[y] = z
 }
-
+// Puts the elements of the temppass into the string lastPass
 for (n=0; n<tempPass.length; n++){
     lastPass=lastPass+tempPass[n];
 }
