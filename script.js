@@ -40,13 +40,13 @@ function generatePassword(){
   }
   
 // Asks user for maximum password length 
-  // maxLength = parseInt(prompt( "Please enter a maximum password length."));
+  maxLength = parseInt(prompt( "Please enter a maximum password length."));
     
-  // while ((!(maxLength<=128)) || (!(maxLength >= minLength))){
+  while ((!(maxLength<=128)) || (!(maxLength >= minLength))){
     
-  //   maxLength = parseInt(prompt("Invalid input. Please enter a length between " + minLength + " and 128."));
+    maxLength = parseInt(prompt("Invalid input. Please enter a length between " + minLength + " and 128."));
    
-  // }
+  }
  
     do{
 // prompts user for charecter sets
@@ -58,9 +58,9 @@ function generatePassword(){
     while((!useLower && !useUpper && !useNumber && !useSpecial))
   
   // This is from an early version and it chosses a random length between the min and max length
-  // var fixLength = maxLength - minLength + 1;
+  var fixLength = maxLength - minLength + 1;
 
-  // var passLength = Math.floor((Math.random()*fixLength)+minLength);
+  var passLength = Math.floor((Math.random()*fixLength)+minLength);
 
 
   // Adds individual charecter sets to the password charecter sets
@@ -95,6 +95,7 @@ if (useSpecial){
 
 
 // Fills tempPass with random charecters
+
   for(var m=tempPass.length; m<passLength; m++){
   tempPass.push(passChar[Math.floor(Math.random()*passChar.length)]);
   }
